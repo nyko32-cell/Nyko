@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chowhati Boys</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#020617;
+  color:#fff;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 50px;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav h2{color:#38bdf8;}
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#fff;
+  transition:.3s;
+}
+nav a:hover{color:#38bdf8;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+.hero h1{
+  font-size:60px;
+}
+.hero p{
+  margin:15px 0;
+  opacity:0.8;
+}
+.hero button{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#38bdf8;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* SECTION */
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* MEMBERS */
+.members{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#1e293b;
+  padding:25px;
+  border-radius:15px;
+  transition:.4s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.card:hover{
+  transform:translateY(-10px);
+}
+.card h3{color:#38bdf8;}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  transition:.3s;
+}
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* FORM */
+form input, form button{
+  padding:12px;
+  margin:10px;
+  width:80%;
+  border-radius:8px;
+  border:none;
+}
+form input{
+  background:#1e293b;
+  color:#fff;
+}
+form button{
+  background:#22c55e;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:20px;
+  text-align:center;
+  font-size:14px;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>Chowhati Boys 🔥</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#members">Members</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#join">Join</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <h1>Chowhati Boys</h1>
+  <p>Brotherhood • Power • Vibes ⚡</p>
+  <button onclick="goJoin()">Join Now</button>
+</div>
+
+<!-- ABOUT -->
+<section class="fade">
+  <h2>About Us</h2>
+  <p>We are Chowhati Boys — a strong brotherhood of friendship, fun, football and loyalty 💯</p>
+</section>
+
+<!-- MEMBERS -->
+<section id="members" class="fade">
+  <h2>Our Squad</h2>
+  <div class="members">
+    <div class="card"><h3>Deep</h3><p>Striker</p></div>
+    <div class="card"><h3>Pritam</h3><p>Playmaker</p></div>
+    <div class="card"><h3>Nondu</h3><p>Defender</p></div>
+    <div class="card"><h3>Ghontu</h3><p>Goal Machine</p></div>
+    <div class="card"><h3>Asish</h3><p>Entertainer 😂</p></div>
+    <div class="card"><h3>Baban</h3><p>Supporter</p></div>
+    <div class="card"><h3>Vokto</h3><p>Energy Booster</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="fade">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400">
+    <img src="https://via.placeholder.com/400">
+    <img src="https://via.placeholder.com/400">
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="fade">
+  <h2>Join Us</h2>
+  <form onsubmit="join(event)">
+    <input type="text" placeholder="Your Name" required><br>
+    <input type="email" placeholder="Email"><br>
+    <button>Join Now</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Chowhati Boys | All Rights Reserved</p>
+</footer>
+
+<script>
+// scroll button
+function goJoin(){
+  document.getElementById("join").scrollIntoView({behavior:"smooth"});
+}
+
+// join alert
+function join(e){
+  e.preventDefault();
+  alert("🔥 Welcome to Chowhati Boys!");
+}
+
+// animation
+const elements = document.querySelectorAll(".fade");
+window.addEventListener("scroll", ()=>{
+  elements.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
